@@ -3,7 +3,5 @@
 #include "startgame.h"
 
 int main() {
-	Map map;
-	map.PrintMap();
 	PlayGame();
 }

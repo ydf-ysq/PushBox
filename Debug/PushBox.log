@@ -1,3 +1,9 @@
-﻿  startgame.cpp
+﻿  star.cpp
+D:\Code\c&c++\PushBox\star.cpp(15,12): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+  startgame.cpp
+  正在生成代码...
   man.cpp
-  PushBox.vcxproj -> D:\vs2019\source\PushBox\Debug\PushBox.exe
+  map.cpp
+  mian.cpp
+  正在生成代码...
+  PushBox.vcxproj -> D:\Code\c&c++\PushBox\Debug\PushBox.exe

@@ -7,6 +7,8 @@
 
 
 void PlayGame() {
+	Map map;
+	map.PrintMap();
 	Star star;
 	star.StarAppear();
 	Box box;
@@ -14,7 +16,7 @@ void PlayGame() {
 	Man man;
 	man.InitMan();
 	while (!QuitGame()) {
-		man.move(box);
+		man.move(box, map);
 		if (star.ManPass(man)) star.ReStar();
 		if (box.InPosition(star)) {
 			box.BoxClear();

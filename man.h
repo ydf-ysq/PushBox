@@ -4,6 +4,7 @@
 #include <deque>
 #include "point.h"
 #include "box.h"
+#include "map.h"
 //class Box;和include二选一
 class Man {
 public:
@@ -13,11 +14,11 @@ public:
 		dir = UP;
 	}
 	void InitMan();
-	void move(Box&);
+	void move(Box&, Map&);
 	void NormalMove();
 	bool HitBox(Box&);
 	void PushBox(Box&);
-	bool OnEdge();
+	bool OnEdge(Map&);
 
 	int GetX() { return man.front().GetX(); }
 	int GetY() { return man.front().GetY(); }

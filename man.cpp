@@ -7,7 +7,7 @@
 void Man::InitMan() {
 	man.front().PrintMan();
 }
-void Man::move(Box& box) {
+void Man::move(Box& box, Map& map) {
 	//如果按了移动键，就移动，否则不动
 	//if (_kbhit()) {
 		int ch = _getch();
@@ -17,7 +17,7 @@ void Man::move(Box& box) {
 			switch (ch) {
 			case 72://UP
 				dir = UP;
-				if (!OnEdge() && !HitBox(box)) {
+				if (!OnEdge(map) && !HitBox(box)) {
 					NormalMove();
 				}
 				else if (HitBox(box)) {
@@ -26,7 +26,7 @@ void Man::move(Box& box) {
 				break;
 			case 80://DOWN
 				dir = DOWN;
-				if (!OnEdge() && !HitBox(box)) {
+				if (!OnEdge(map) && !HitBox(box)) {
 					NormalMove();
 				}
 				else if (HitBox(box)) {
@@ -35,7 +35,7 @@ void Man::move(Box& box) {
 				break;
 			case 75://LEFT
 				dir = LEFT;
-				if (!OnEdge() && !HitBox(box)) {
+				if (!OnEdge(map) && !HitBox(box)) {
 					NormalMove();
 				}
 				else if (HitBox(box)) {
@@ -44,7 +44,7 @@ void Man::move(Box& box) {
 				break;
 			case 77://RIGTHT
 				dir = RIGHT;
-				if (!OnEdge() && !HitBox(box)) {
+				if (!OnEdge(map) && !HitBox(box)) {
 					NormalMove();
 				}
 				else if (HitBox(box)) {
@@ -120,14 +120,15 @@ void Man::PushBox(Box& box) {
 	}
 }
 
-bool Man::OnEdge() {
+//是否在地图边缘
+bool Man::OnEdge(Map& map) {
 	switch (dir) {
 	case UP:
 		if (GetY() == 1)
 			return true;
 		break;
 	case DOWN:
-		if (GetY() == 13)
+		if (GetY() == map.getSize() - 2)
 			return true;
 		break;
 	case LEFT:
@@ -135,7 +136,7 @@ bool Man::OnEdge() {
 			return true;
 		break;
 	case RIGHT:
-		if (GetX() == 13)
+		if (GetX() == map.getSize() - 2)
 			return true;
 		break;
 	}
